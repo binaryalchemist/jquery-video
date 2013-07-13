@@ -4,22 +4,33 @@
 * Released under the MIT license
 **/
 (function($){
+	$.video = {
+		modules : [],
+	};
+
 	$.fn.video = function(options) {
-		return $(this).append(getHtml(
+		var elem = $(this);
+		$.each($.video.modules, function(index, mod) {
+			mod(elem, options);
+		});
+	}
+
+	$.video.modules.push(function(elem, options) {
+		return elem.append(getHtml(
 			options.videos || options,
 			options.preload || true,
-			options.controls || 'html'
-		));
-	}
+			options.controls || getDefaultControls
+		));		
+	});
 
 	function getHtml(width, height, video, preload, controls) {
 		var html = '<div class="jquery-video container">';
-
-		if (controls == 'minskin') { html += getStandardControlHtml();	}
+		
+		if ($.isFunction(controls)) { html += controls(); }
 
 		html += '<video class="jquery-video player"';
 
-		if (controls == 'html') { html += ' controls'; }
+		if (controls == 'browser') { html += ' controls'; }
 
 		html += '>';
 
@@ -36,7 +47,7 @@
 		return html;
 	}
 
-	function getStandardControlHtml() {
+	function getDefaultControls() {
 		var controlHtml = '<div class="video-controls">';
 		controlHtml += '<a class="video-play-pause"></a>';
 	    controlHtml += '<div class="video-seek">';
