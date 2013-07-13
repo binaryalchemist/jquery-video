@@ -4,6 +4,10 @@
 ## Description
 A extensible video player libary uses HTML5 Video elements.
 
+## Usage
+
+	jQuery("#playerContainer").video({ src:"test.mp4", type:"video/mp4" });
+
 ## License
 
 Copyright (c) 2013 Kristopher Alexander
