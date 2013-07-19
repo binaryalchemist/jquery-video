@@ -1,5 +1,5 @@
 
-# [Html5 Video Player Plugin For jQuery]
+# Html5 Video Player Plugin For jQuery
 
 ## Description
 A extensible video player libary uses HTML5 Video elements.

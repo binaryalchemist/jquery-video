@@ -48,11 +48,15 @@
 	}
 
 	function getDefaultControls() {
-		var controlHtml = '<div class="video-controls">';
-		controlHtml += '<a class="video-play-pause"></a>';
-	    controlHtml += '<div class="video-seek">';
-	    controlHtml += '<div class="video-timer">00:00</div>';
-		controlHtml += '</div>';
+		var controlHtml = 	'<div class="video-controls">';
+		controlHtml += 			'<a class="video-play-pause play"></a>';
+	    controlHtml += 			'<div class="video-seek">';
+	    controlHtml += 				'<div class="video-seek-item thumb"></div>';
+	    controlHtml += 				'<div class="video-seek-item timetip"></div>';
+	    controlHtml += 				'<div class="video-seek-item track"></div>';
+	    controlHtml += 				'<div class="video-seek-item progress"></div>';
+	    controlHtml += 			'</div>';
+		controlHtml += 		'</div>';
 		return controlHtml;
 	}
 }(jQuery))
